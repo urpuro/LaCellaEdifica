@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ca">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>La Cella Edifica</title>
+  <link rel="stylesheet" href="css/estil.css">
+  <script type="module" src="js/main.js"></script>
+</head>
+<body>
+  <header class="capcalera">
+    <h1>La Cella Edifica</h1>
+    <div class="marcador">
+      <span>⭐ <strong id="punts">0</strong> punts</span>
+      <span>🟥 <strong id="inv-teula">0</strong> teules</span>
+      <span>🟫 <strong id="inv-taulo">0</strong> taulons</span>
+    </div>
+    <nav class="pestanyes">
+      <button data-seccio="proves" class="actiu">Proves</button>
+      <button data-seccio="botiga">Botiga</button>
+      <button data-seccio="construccio">Construcció</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="proves" class="seccio actiu">
+      <ul id="llista-proves" class="llista-proves"></ul>
+      <div id="prova-activa" class="prova"></div>
+    </section>
+
+    <section id="botiga" class="seccio">
+      <div id="cataleg" class="cataleg"></div>
+    </section>
+
+    <section id="construccio" class="seccio">
+      <div class="eines" id="eines"></div>
+      <div id="tauler" class="tauler"></div>
+      <p class="ajuda">Tria un material i fes clic a una columna: la peça hi cau i s'apila.</p>
+    </section>
+  </main>
+
+  <div id="avis" class="avis" role="status" aria-live="polite"></div>
+</body>
+</html>

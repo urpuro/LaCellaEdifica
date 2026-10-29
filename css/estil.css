@@ -1,0 +1,117 @@
+:root {
+  --fons: #f4f1ea;
+  --superficie: #ffffff;
+  --text: #2b2b2b;
+  --suau: #6b6b6b;
+  --vora: #d8d2c4;
+  --principal: #1e8e3e;
+  --error: #c5221f;
+  --teula: #c0533a;
+  --taulo: #8b5a2b;
+  --cel: #dceefb;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: var(--fons);
+  color: var(--text);
+}
+
+.capcalera {
+  background: var(--superficie);
+  border-bottom: 1px solid var(--vora);
+  padding: 12px 16px 0;
+}
+.capcalera h1 { margin: 0 0 8px; font-size: 1.5rem; color: var(--principal); }
+.marcador { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 12px; }
+
+.pestanyes { display: flex; gap: 4px; }
+.pestanyes button {
+  border: 1px solid var(--vora);
+  border-bottom: none;
+  background: var(--fons);
+  padding: 8px 16px;
+  border-radius: 8px 8px 0 0;
+  cursor: pointer;
+  font: inherit;
+}
+.pestanyes button.actiu { background: var(--principal); color: #fff; border-color: var(--principal); }
+
+main { padding: 16px; max-width: 960px; margin: 0 auto; }
+.seccio { display: none; }
+.seccio.actiu { display: block; }
+
+button { font: inherit; cursor: pointer; }
+button:disabled { cursor: not-allowed; opacity: 0.5; }
+
+/* Proves */
+#proves.actiu { display: grid; grid-template-columns: 240px 1fr; gap: 16px; }
+@media (max-width: 640px) { #proves.actiu { grid-template-columns: 1fr; } }
+
+.llista-proves { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; align-content: start; }
+.llista-proves button {
+  width: 100%; text-align: left; padding: 8px 10px;
+  background: var(--superficie); border: 1px solid var(--vora); border-radius: 6px;
+}
+.llista-proves button.actiu { border-color: var(--principal); box-shadow: 0 0 0 1px var(--principal); }
+.llista-proves small { color: var(--suau); }
+
+.prova { background: var(--superficie); border: 1px solid var(--vora); border-radius: 8px; padding: 16px; }
+.prova h2 { margin-top: 0; }
+.prova p.feta { color: var(--principal); font-weight: 600; }
+
+.full { border-collapse: collapse; margin: 12px 0; font-size: 0.95rem; }
+.full th, .full td { border: 1px solid #c8c8c8; padding: 4px 10px; min-width: 70px; }
+.full th { background: #f1f3f4; color: var(--suau); font-weight: 500; min-width: 32px; }
+.full td { background: #fff; }
+
+.resposta { display: flex; gap: 8px; flex-wrap: wrap; }
+.resposta input {
+  flex: 1; min-width: 200px; padding: 8px;
+  font-family: ui-monospace, monospace; font-size: 1rem;
+  border: 1px solid var(--vora); border-radius: 6px;
+}
+.resposta button, .article button {
+  padding: 8px 16px; border: none; border-radius: 6px;
+  background: var(--principal); color: #fff;
+}
+
+/* Botiga */
+.cataleg { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; }
+.article { background: var(--superficie); border: 1px solid var(--vora); border-radius: 8px; padding: 16px; text-align: center; }
+.article .icona { font-size: 2.5rem; }
+.article h3 { margin: 8px 0 4px; }
+.article p { margin: 0 0 12px; color: var(--suau); }
+
+/* Construcció */
+.eines { display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
+.eines button { padding: 6px 12px; border: 1px solid var(--vora); border-radius: 6px; background: var(--superficie); }
+.eines button.actiu { border-color: var(--principal); box-shadow: 0 0 0 1px var(--principal); }
+
+.tauler {
+  display: grid;
+  grid-template-columns: repeat(var(--columnes), 1fr);
+  gap: 1px;
+  background: var(--cel);
+  border: 2px solid var(--vora);
+  border-bottom: 6px solid #6b8e23;
+  max-width: 600px;
+}
+.casella { aspect-ratio: 1; cursor: pointer; }
+.casella:hover { background: rgba(0, 0, 0, 0.06); }
+.casella.teula { background: var(--teula); }
+.casella.taulo { background: var(--taulo); }
+.ajuda { color: var(--suau); font-size: 0.9rem; }
+
+/* Avisos */
+.avis {
+  position: fixed; bottom: 16px; left: 50%; transform: translateX(-50%) translateY(100px);
+  padding: 10px 18px; border-radius: 8px; color: #fff; transition: transform 0.2s;
+  pointer-events: none;
+}
+.avis.visible { transform: translateX(-50%) translateY(0); }
+.avis.ok { background: var(--principal); }
+.avis.error { background: var(--error); }
